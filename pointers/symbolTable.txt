@@ -1,0 +1,3 @@
+Symbol Table is an important data structure created and maintained by the compiler
+in order to keep track of semantics of variable i.e, 
+it stores information about the scope and binding information about names, information abount instances of various entities such as variables and fuction names, classes, objects, etc.
