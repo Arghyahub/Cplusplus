@@ -5,4 +5,4 @@
 
 * [2 D Dynamic Array](https://www.geeksforgeeks.org/how-to-declare-a-2d-array-dynamically-in-c-using-new-operator/ "GFG")
 
-![2D Dynamic Array](2d.jpg)
+![2D Dynamic Array](https://github.com/Arghyahub/Cplusplus/blob/main/Heap/2d.JPG)
