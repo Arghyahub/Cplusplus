@@ -1,4 +1,4 @@
-# **2 D Array**
+# **Dynamic Memory Allocation**
 
 * [Dynamic Memory Allocation](https://www.geeksforgeeks.org/new-and-delete-operators-in-cpp-for-dynamic-memory/ "GFG")
 

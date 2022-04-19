@@ -1,4 +1,4 @@
-# **2 D Array**
+# **Binary Search**
 
 * [Agressive Cows](https://www.codingninjas.com/codestudio/problems/aggressive-cows_1082559 "CodingNinja")
 
