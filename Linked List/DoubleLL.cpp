@@ -14,6 +14,17 @@ class Node
         this->next= NULL ;
         this->prev= NULL ;
     }
+
+    ~Node()
+    {
+        int value = this->data ;
+        if (next!=NULL)
+        {
+            delete next ;
+            next = NULL ;
+        }
+        cout<<"Memory free for element : "<<value<<endl ;
+    }
 };
 
 void print(Node* head)
@@ -120,9 +131,42 @@ void insertAtPosition(Node* &tail, Node* &head, int position, int d)
 
 }
 
-void deletenode(Node* &head, int position)
+void deletenode(Node* &tail,Node* &head, int position)
 {
-    
+    Node* temp = head ;
+    if (position==1)
+    {
+        temp->next->prev = NULL ;
+        head = temp ->next ;
+
+        temp->next=NULL ;
+        delete temp ;
+        return ;
+    }
+    int count= 1 ;
+    while (count<position)
+    {
+        count++ ;
+        temp= temp->next ;
+    }
+
+    if (temp->next==NULL) // last node
+    {
+        temp->prev->next = NULL ;
+        tail=temp->prev ;
+
+        temp->prev = NULL ;
+        delete temp ;
+    }
+    else
+    {
+        temp->prev->next = temp->next ;
+        temp->next->prev = temp -> prev ;
+
+        temp->next = NULL ;
+        temp->prev = NULL ;
+        delete temp ;
+    }
 }
 
 int main(){
@@ -144,13 +188,16 @@ int main(){
 
     print(head) ;
 
-    cout<<"Head : "<<head->data<<endl ;
-    cout<<"Tail : "<<tail->data<<endl ;
-
     insertAtPosition(tail,head,5,777) ;
 
     print(head) ;
 
+    cout<<"Head : "<<head->data<<endl ;
+    cout<<"Tail : "<<tail->data<<endl ;
+
+
+    deletenode(tail,head,4) ;
+    print(head) ;
     cout<<"Head : "<<head->data<<endl ;
     cout<<"Tail : "<<tail->data<<endl ;
     return 0 ;
