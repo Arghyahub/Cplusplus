@@ -25,9 +25,9 @@ void inserAtHead(Node* &head,int d)
     head = temp ;
 }
 
-void print(Node* &head)
+void print(Node* temp)
 {
-    Node* temp=head ;
+    // Node* temp=head ;
 
     while (temp!=NULL)
     {
