@@ -1,0 +1,86 @@
+#include<iostream>
+using namespace std;
+
+class Node
+{
+    public:
+    int data;
+    Node* next ;
+
+    Node(int d)
+    {
+        this->data = d;
+        this->next = NULL ;
+    }
+};
+
+void insertAtHead(Node* &head,int d)
+{
+    if (head == NULL)
+    {
+        Node* newnode = new Node(d) ;
+        head = newnode ;
+    }
+    else
+    {
+        Node* newnode = new Node(d) ;
+        newnode->next = head ;
+        head = newnode ;
+    }
+}
+
+void print(Node* head)
+{
+    cout<<"LL : " ;
+    Node* temp = head ;
+    while (temp != NULL)
+    {
+        cout<<temp->data<<" " ;
+        temp=temp->next ;
+    }
+}
+
+void reverse(Node* &head)
+{
+    if (head==NULL || head->next == NULL)
+    {
+        return ;
+    }
+    Node* prev = NULL ;
+    Node* curr = head ;
+    Node* forward = head ->next ;
+    while (curr != NULL)
+    {
+        forward = curr ->next ;
+        curr ->next = prev ;
+        prev = curr ;
+        curr = forward ;
+    }
+    head = prev ;
+}
+
+int main(){
+    Node *head = NULL ;
+    int n ;
+    cout<<"Enter number of elements :";
+    cin>>n ;
+    cout<<"Enter elements :";
+
+    while (n--)
+    {
+        int d ;
+        cin>>d ;
+        insertAtHead(head,d) ;
+    }
+
+    print(head) ;
+
+    printf("\nBefore reversal : \n") ;
+    reverse(head) ;
+    printf("\nAfter reversal : \n") ;
+
+    print(head) ;
+    
+
+    return 0 ;
+}
