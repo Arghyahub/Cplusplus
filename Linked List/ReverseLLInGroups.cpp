@@ -6,13 +6,11 @@ class Node
     public:
     int data;
     Node* next ;
-    Node* prev ;
 
     Node(int d)
     {
         this->data = d;
         this->next = NULL ;
-        this->prev = NULL ;
     }
 };
 
@@ -27,7 +25,6 @@ void insertAtHead(Node* &head,int d)
     {
         Node* newnode = new Node(d) ;
         newnode->next = head ;
-        head->prev = newnode ;
         head = newnode ;
     }
 }
@@ -43,31 +40,35 @@ void print(Node* head)
     }
 }
 
-Node* reverse(Node* head)
-{
-    if (head==NULL || head->next == NULL)
-    {
-        return head ;
-    }
-    
-    Node* curr = head ;
-    Node* back = NULL ;
-    while(curr!=NULL)
-    {
-        Node* forward = curr->next ;
-        
-        curr->next = back ;
-        back = curr ;
-        curr->prev = forward ;
-        curr = forward ;
-    }
-    return back ;
-
+Node* kReverse(Node* head, int k) {
+    if (head==NULL || head->next==NULL)
+	{
+		return head ;
+	}
+	// say only k=2
+	int count = 0 ;
+	Node* curr = head;
+	Node* prev = NULL ;
+	Node* forward = curr->next ;
+	while (curr!=NULL && count<k)
+	{
+		forward=curr->next ;
+		curr->next=prev;
+		prev = curr ;
+		curr=forward ;
+		count++ ;
+	}
+	
+	// now let recursion solve the rest 
+	if (forward!=NULL)
+		head->next = kReverse(forward,k) ;
+	
+	return prev ; // here we return the previous Node
 }
 
 int main(){
     Node *head = NULL ;
-    int n ;
+    int n , k;
     cout<<"Enter number of elements :";
     cin>>n ;
     cout<<"Enter elements :";
@@ -82,7 +83,10 @@ int main(){
     print(head) ;
 
     cout<<"\nBefore reversal : \n" ;
-    head = reverse(head) ;
+    cout<<"Enter size of group :";
+    cin>>k ;
+
+    head = kReverse(head,k) ;
     cout<<"\nAfter reversal : \n" ;
 
     print(head) ;

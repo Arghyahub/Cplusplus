@@ -1,4 +1,4 @@
-#include<iostream>
+cout<<#include<iostream>
 using namespace std;
 
 class Node
@@ -72,9 +72,9 @@ int main(){
 
     print(head) ;
 
-    printf("\nBefore reversal : \n") ;
+    cout<<"\nBefore reversal : \n" ;
     reverse(NULL,head,head) ;
-    printf("\nAfter reversal : \n") ;
+    cout<<"\nAfter reversal : \n" ;
 
     print(head) ;
     

@@ -77,9 +77,9 @@ int main(){
 
     print(head) ;
 
-    printf("\nBefore reversal : \n") ;
+    cout<<"\nBefore reversal : \n" ;
     head = reverse(head) ;
-    printf("\nAfter reversal : \n") ;
+    cout<<"\nAfter reversal : \n" ;
 
     print(head) ;
     
