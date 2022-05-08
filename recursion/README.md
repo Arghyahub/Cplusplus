@@ -21,7 +21,7 @@
 &nbsp;
 * [Count Nth step](https://www.geeksforgeeks.org/count-ways-reach-nth-stair-using-step-1-2-3/ "GFG")
 
-![Count Nth step](CountNthStep.jpg)
+![Count Nth step](CountNthStep.JPG)
 
 &nbsp;
 
