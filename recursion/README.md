@@ -18,6 +18,7 @@
 * [Selection Sort](https://www.geeksforgeeks.org/selection-sort/ "GFG")
 
 * [Mirko Tree cutting Problem](https://www.spoj.com/problems/EKO/ "SPOJ")
+  
 &nbsp;
 * [Count Nth step](https://www.geeksforgeeks.org/count-ways-reach-nth-stair-using-step-1-2-3/ "GFG")
 
@@ -39,8 +40,12 @@
 
 * [Letter Combinations of a Phone Number](https://www.geeksforgeeks.org/find-possible-words-phone-digits/ "GFG")
 
+&nbsp;
 * [Power Set](https://www.geeksforgeeks.org/recursive-program-to-generate-power-set/ "GFG")
 
+![Count Nth step](PowerSet.JPG)
+
+&nbsp;
 * [Rat Maze](https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1# "GFG")
 
 
