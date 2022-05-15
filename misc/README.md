@@ -8,4 +8,4 @@
 
 * [Newtons Square Root](https://www.geeksforgeeks.org/find-root-of-a-number-using-newtons-method/#:~:text=Let%20N%20be%20any%20number,to%20be%20N%20or%201. "GFG")
 
-![Newtons Square Root](https://github.com/Arghyahub/Cplusplus/blob/main/misc/Newtons%20SquareRoot.JPG "Newtons SquareRoot")
+![Newtons Square Root](Newtons%20SquareRoot.JPG "Newtons SquareRoot")
