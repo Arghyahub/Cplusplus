@@ -12,13 +12,12 @@ int main(){
     cin>>size>>required;
     vector<int> arr ;
 
-    int start = INT_MAX, end = -1 ;
+    int start = 0, end = -1 ;
 
     for (int i=0; i<size; i++)
     {
         int x;
         cin>>x;
-        start=min(start,x) ;
         end=max(end,x) ;
         arr.push_back(x);
     }
