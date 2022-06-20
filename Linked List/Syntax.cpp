@@ -6,7 +6,8 @@ class node
     public:
     int data ; // where the data is stored
 
-    node* next ; // a pointer poiting towards next node
+    node* next ; // a pointer poiting towards next node it has data type as node* because it accepts or stores
+    //              another node's address
 
 };
 int main(){
