@@ -39,16 +39,23 @@ struct Node
 // Should return  right view of tree
 class Solution
 {
+    /*
+                1      ⬅
+            2       3    ⬅
+         4        5    6   ⬅
+       7                     ⬅
+            ANS = 1 3 6 7
+    */
     public:
-    void solve(Node* root, vector<int> &ans, int level)
-    {
+    void solve(Node* root, vector<int> &ans, int level)  // IF YOU ONLY GO TO THE RIGHT BRANCH AND SAY THE LEFT BRANCH IS LONGER
+    {                                                   // THEN YOU WILL MISS OUT LONGER BRANCH's ELEMENT VISIBLE FROM RIGHT SIDE
         if (root==NULL)
             return ;
         
         if (ans.size()==level)
-            ans.push_back(root->data) ;
+            ans.push_back(root->data) ;         // LEVEL WISE THE FIRST ELEMENT WILL BE THE ANSWER
             
-        solve(root->right,ans,level+1) ;
+        solve(root->right,ans,level+1) ;        // IF YOU CALL THE RIGHT BRANCH FIRST
         solve(root->left,ans,level+1) ;
     }
     //Function to return list containing elements of right view of binary tree.

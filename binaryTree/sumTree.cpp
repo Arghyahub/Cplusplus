@@ -95,7 +95,7 @@ struct Node
 class Solution
 {
     private:
-    pair<bool,int> checkSum(Node* root)
+    pair<bool,int> checkSum(Node* root) // IF THE SUM OF LEFT SUBTREE AND RIGHT SUBTREE IS EQUAL TO THE CURRENT NODE RETURN TRUE
     {
         // base condition
         if (root==NULL)
@@ -105,17 +105,17 @@ class Solution
         }
         if (root->left ==NULL && root->right == NULL)
         {
-            pair<bool,int> ans  = make_pair(true,root->data) ;
+            pair<bool,int> ans  = make_pair(true,root->data) ;      // RETURN TRUE FOR THE LEAF NODES
             return ans ;
         }   
         
         pair<bool,int> leftans = checkSum(root->left) ;
         pair<bool,int> rightans = checkSum(root->right) ;
         
-        bool condn = root->data == leftans.second + rightans.second ;
+        bool condn = root->data == leftans.second + rightans.second ; // CHECK IF LEFT AND RIGHT SUBTREE ADDS UPTO THE CURRENT NODE
         
         pair<bool,int> ans;
-        if (condn && leftans.first && rightans.first )
+        if (condn && leftans.first && rightans.first )          // EVEN IF ONE CONDITION COMES WRONG i.e ONE SUBTREE RETURNS FALSE
         {
             ans.first = true ;
             ans.second = 2*root->data ;
@@ -123,7 +123,7 @@ class Solution
         }
         else
         {
-            ans.first = false ;
+            ans.first = false ;                             // THE ANSWER WILL BE FALSE 
         }
         return ans ;
         

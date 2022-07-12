@@ -112,11 +112,11 @@ class Solution {
         if (root==NULL)
             return 0 ;
         
-        int op1 = diameter(root->left) ;
-        int op2 = diameter(root->right) ;
-        int op3 = height(root->left) + height(root->right) + 1;
+        int op1 = diameter(root->left) ;        // FIND DIAMETER IN THE LEFT SUBTREE
+        int op2 = diameter(root->right) ;       // FIND DIAMETER IN THE RIGHT SUBTREE
+        int op3 = height(root->left) + height(root->right) + 1;     // THE DIAMETER INCLUDING CURRENT NODE CAN ALSO BE THE ANSWER
         
-        int ans = max(op1,max(op2,op3)) ;
+        int ans = max(op1,max(op2,op3)) ;   // CHOOSE THE MAXIMUM
         
         return ans ;
     }

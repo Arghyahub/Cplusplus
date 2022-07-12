@@ -101,7 +101,7 @@ struct Node
 };
  */
 
-class Solution{
+class Solution{   // A TREE IS CALLED BALANCED IF DIFFERENCE BETWEEN THE HEIGHT OF LEFT AND RIGHT SUBTREE IS LESS THAN EQUALS TO 1
     public:
     int checkBalanced(Node* root, bool &check)
     {
@@ -111,7 +111,8 @@ class Solution{
         int left = checkBalanced(root->left,check) ;
         int right = checkBalanced(root->right,check) ;
         
-        check = ( abs(left-right)<=1 )? check&&true:0 ;
+        check = ( abs(left-right)<=1 )? check&&true:0 ;  // IF ABS DIST > 1 :: CHECK = CHECK&&FALSE ;
+        //      IF ONE FALSE STATEMENET COMES TO DURING THE && OPERATION THE ENTIRE ANSWER WILL BE FALSE
         
         return max(left,right) + 1 ;
         

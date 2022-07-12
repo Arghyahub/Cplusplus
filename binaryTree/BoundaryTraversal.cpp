@@ -156,7 +156,7 @@ public:
         
         // add all the leaves
         leafTraversal(root->left,ans) ;
-        leafTraversal(root->right,ans) ;  // if you directly send root, it will also add the first root node
+        leafTraversal(root->right,ans) ;  //if you directly send root, it will also add the first root node if there is a single root node
         
         // Traverse right nodes
         rightTraversal(root->right,ans) ;

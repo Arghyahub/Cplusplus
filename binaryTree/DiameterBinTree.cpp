@@ -98,17 +98,17 @@ class Solution {
         if (root==NULL)
             return 0 ;
         
-        int left = height(root->left,ans) ;
-        int right = height(root->right,ans) ;
+        int left = height(root->left,ans) ;         // GIVES THE LONGEST HEIGHT OF A SUBTREE ON THE LEFT OF ANY NODE
+        int right = height(root->right,ans) ;         // GIVES THE LONGEST HEIGHT OF THE SUBTREE ON THE RIGHT OF ANY NODE
         
-        ans = max(ans , left+right+1) ;
+        ans = max(ans , left+right+1) ;             // ADD 1 FOR THE CURRENT NODE
         
         int ret = max(left,right) + 1;
         
         return ret ;
     }
   public:
-    // Function to return the diameter of a Binary Tree.
+    // ****************** DIAMETER MEANS THE DISTACE BETWEEN ANY TWO LONGEST BRANCH OF A NODE **************
     int diameter(Node* root) {
         int  ans =0 ;
         height(root,ans) ;

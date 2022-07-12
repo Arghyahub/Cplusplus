@@ -32,25 +32,25 @@ struct Node
 
 
    
-class Solution
+class Solution          //  GIVEN TWO TREES CHECK IF THEY ARE IDENTICAL OR NOT
 {
     public:
-    bool isIdentical(Node *r1, Node *r2)
+    bool isIdentical(Node *r1, Node *r2)        // GO IN THE SAME DIRECTION OF EACH TREE
     {
-        if (r1==NULL && r2==NULL)
+        if (r1==NULL && r2==NULL)       
             return true ;
         if (r1==NULL && r2!=NULL)
             return false ;
-        if (r1!=NULL && r2==NULL)
+        if (r1!=NULL && r2==NULL)               // 1. CHECK THE LEAF NODE
             return false ;
         
         bool left = isIdentical(r1->left,r2->left) ;
         bool right = isIdentical(r1->right,r2->right) ;
         
-        int val = r1->data == r2->data ;
+        int val = r1->data == r2->data ;        // 2. CHECK THE CURRENT NODE
         
-        if (left && right && val)
-            return true ;
+        if (left && right && val)               // 3. IF NODES OF LEFT, RIGHT SUBTREE HAVE SAME DATA AND CURRENT NODE ALSO HAVE SAME DATA
+            return true ;                               // RETURN TRUE ;
         else
             return false ;
         
