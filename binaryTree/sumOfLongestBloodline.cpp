@@ -128,6 +128,8 @@ public:
                 maxdepth=depth ;
                 ans = sum ;
             }
+            else
+                return ;
         }
         sum+= root->data ;
         depth++ ;

@@ -101,9 +101,9 @@ struct Node
 };
 */
 
-class Solution{
+class Solution{         // Maximum sum of nodes that are not adjacent (not directly connected)
   public:
-    pair<int,int> solve(Node* root)
+    pair<int,int> solve(Node* root)     // .first return included value and .second returns excluded value 
     {
         pair<int,int> ans ;
         if (root==NULL)
