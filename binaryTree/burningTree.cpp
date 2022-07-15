@@ -125,7 +125,7 @@ class Solution {
         {
             bool flag = 0 ;
             int size = q.size() ;
-            for (int i=0; i<size; i++)
+            for (int i=0; i<size; i++)      // PROCESS ONE BATCH OF NODES AT A TIME
             {
                 Node* front = q.front() ;
                 q.pop() ;
@@ -133,25 +133,25 @@ class Solution {
                 if (front->left && !visited[front->left])
                 {
                     visited[front->left] = 1 ;
-                    flag = 1 ;
+                    flag = 1 ;                                      // IF WE ARE CAPABLE 
                     q.push(front->left) ;
                 }
                 
                 if (front->right && !visited[front->right])
                 {
                     visited[front->right] = 1 ;
-                    flag = 1;
+                    flag = 1;                                       // TO BURN ATLEAST
                     q.push(front->right) ;
                 }
                 
                 if (NodeToPrev[front] && !visited[NodeToPrev[front]])
                 {
                     visited[NodeToPrev[front]] = 1 ;
-                    flag = 1 ;
+                    flag = 1 ;                                      // ONE NODE AT A TIME
                     q.push(NodeToPrev[front]) ;
                 }
             }
-            if (flag)
+            if (flag)                   // THEN INCREMENT THE TIMER
                 time++ ;
         }
         return time ;
@@ -161,8 +161,8 @@ class Solution {
     
     int minTime(Node* root, int target) 
     {
-        unordered_map<Node*,Node*> NodeToPrev ;
-        Node* targetNode = mapInsert(root,target,NodeToPrev) ;
+        unordered_map<Node*,Node*> NodeToPrev ;     // LINKS CURRENT NODE TO THE PREVIOUS NODE
+        Node* targetNode = mapInsert(root,target,NodeToPrev) ; // RELATES CURRENT NODE WITH PREVIOUS NODE, AND RETURN THE TARGET NODE
         
         int time = burnTree(targetNode,NodeToPrev) ;
         return time ;

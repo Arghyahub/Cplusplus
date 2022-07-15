@@ -120,14 +120,14 @@ node* deletion(node* root, int x)
     {
         // 0 child nodes
         if (root->left==NULL && root->right == NULL){
-            delete root ;
+            delete root ;         // EVEN IF WE REMOVE THE NODE, THERES NO PROBLEM WE CAN SIMPLY ATTACH NULL
             return NULL ;
         }
 
         // 1 child node
 
-        // Left child
-        if (root->left!=NULL && root->right==NULL)
+        // Left child             // IF THE NODE HAS A ONLY LEFT/RIGHT CHILD, THEN REMOVE THE NODE AND ATTACH IT TO THE LEFT/RIGHT CHILD
+        if (root->left!=NULL && root->right==NULL)     
         {
             node* temp = root->left ;
             delete root ;
@@ -146,9 +146,9 @@ node* deletion(node* root, int x)
 
         if (root->left!=NULL && root->right!=NULL)
         {
-            int mini = minimumNode(root->right)->data ;
+            int mini = minimumNode(root->right)->data ;    // FIND THE PREDECESSOR OR SUCCESSOR AND PUT IT INTO THE PLACE OF NODE
             root->data = mini ;
-            root->right = deletion(root->right,mini) ;
+            root->right = deletion(root->right,mini) ;      // NOW DELETE THE PREDECESSOR OR SUCCESOR
             return root ;
         }
     }
