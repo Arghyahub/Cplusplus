@@ -39,9 +39,9 @@ TreeNode<int>* inorderToBST(int s, int e, vector<int> &ans)
     if (s > e)
         return NULL ;
     
-    int mid = (s+e)/2 ;
+    int mid = (s+e)/2 ;                // BASICALLY IN INORDER TRAVERSAL THE CENTERAL NODE IS SUITABLE TO BECOME THE ROOT NODE
     TreeNode<int>* root = new TreeNode<int> (ans[mid]) ;
-    root->left = inorderToBST(s,mid-1,ans) ;
+    root->left = inorderToBST(s,mid-1,ans) ;       // THE NEXT NODE OF THE NEW LEVEL WILL RESIDE UNDER MINI TO MID-1 (SMALLER THAN MID)
     root->right = inorderToBST(mid+1,e,ans) ;
      
     return root ;
@@ -49,7 +49,7 @@ TreeNode<int>* inorderToBST(int s, int e, vector<int> &ans)
 
 TreeNode<int>* balancedBst(TreeNode<int>* root) {
     vector<int> ans ;
-    inorderTraverse(root,ans) ;
+    inorderTraverse(root,ans) ; // THE GIVEN TREE IS ALSO A BST SO WE CAN DO INORDER TRAVERSAL TO GET ELEMENTS IN SORTED ORDER
     
     return inorderToBST( 0 , ans.size() - 1 , ans) ;
 

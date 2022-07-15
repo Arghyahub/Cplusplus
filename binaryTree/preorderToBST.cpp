@@ -28,13 +28,13 @@ BinaryTreeNode<int>* solve(vector<int> &preorder, int mini, int maxi , int &i)
     if (i >= preorder.size() )
         return NULL ;
     
-    if ( preorder[i] < mini || preorder[i] > maxi)
+    if ( preorder[i] < mini || preorder[i] > maxi)          // IF THE ELEMENT IS NOT SUITABLE FOR THE POSTION ATTACH NULL NODE
         return NULL ;
     
     BinaryTreeNode<int>* node = new BinaryTreeNode<int> (preorder[i++]) ;
     
-    node->left = solve(preorder,mini,node->data ,i) ;
-    node->right = solve(preorder, node->data ,maxi,i) ;
+    node->left = solve(preorder,mini,node->data ,i) ;                           // FIRST GO FOR THE LEFT CALL
+    node->right = solve(preorder, node->data ,maxi,i) ;             // THEN CHECK IF IT SUITABLE FOR THE POSITION OR ELSE ATTACH NULL
     
     return node ;
 }

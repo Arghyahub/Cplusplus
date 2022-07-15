@@ -24,15 +24,17 @@ int solve(BinaryTreeNode<int>* root, int k, int &i)
     
     // L
     int left = solve(root->left,k,i) ;
-    if (left!=-1)
+    if (left!=-1)                           // SAY WHILE GOING LEFT WE HAVEN'T REACHED THE LAST ELEMENT
         return left ;
      
     // N
-    i++ ;
+    i++ ;                                   // KEEP INCREMENTING COUNTER WHILE GOING BACKWARDS
     if (i==k)
         return root->data ;
     
-    return solve(root->right,k,i) ;
+    return solve(root->right,k,i) ;         // WHILE RETURNING BACK IF YOU CAN GO ONE STEP RIGHT THEN GO AND THEN KEEP GOING LEFT
+                                            // IN SEARCH OF THE SMALLEST ELEMENT ON THE RIGHT BRANCH
+                                            // THEN WHEN YOU ACCESS THE ELEMENT KEEP INCREMENTING COUNTER WHILE GOING BACK
 }
 
 int kthSmallest(BinaryTreeNode<int>* root, int k) {

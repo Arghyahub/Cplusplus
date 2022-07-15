@@ -51,7 +51,7 @@ TreeNode<int>* inorderToBST(vector<int> &arr, int s , int e)
     return root ;
 }
 
-TreeNode<int> *mergeBST(TreeNode<int> *root1, TreeNode<int> *root2){
+TreeNode<int> *mergeBST(TreeNode<int> *root1, TreeNode<int> *root2){        // GET TO SORTED BST'S AND TRANSFORM FROM INORDER TO BST
     vector<int> arr ;
     BSTtoinorder(root1,arr) ;
     BSTtoinorder(root2,arr) ;
