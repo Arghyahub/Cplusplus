@@ -116,7 +116,8 @@ class Solution{         // Maximum sum of nodes that are not adjacent (not direc
         pair<int,int> right = solve(root->right) ;
         
         int incl = root->data + left.second + right.second ;
-        int excl = max(left.first,left.second) + max(right.first,right.second) ;
+        int excl = max(left.first,left.second) + max(right.first,right.second) ; // If you exclude the current node then
+                                                                                // All the other nodes are non adjacent
         
         ans = {incl,excl} ;
 
