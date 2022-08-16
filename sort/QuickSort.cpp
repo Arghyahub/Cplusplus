@@ -1,57 +1,47 @@
 #include<iostream>
 using namespace std;
-int partition(int *arr, int s , int e)
+
+int partition(int arr[], int l , int h)
 {
-    // Put the first Element of start in right position (pivot betn high and low)
-    int pivot = arr[s] ;
-    int count=0 ;
-    for (int i=s+1; i<=e; i++)
+    int data = arr[h] ;
+    int i=l-1 ;
+
+    for (int j=l; j<=h-1; j++)
     {
-        if (arr[i]<=pivot)  // even if it's equal send it to the right Index
-            count++ ;
-    }
-    
-    int PivotIndex=s+count ;
-    swap(arr[s],arr[PivotIndex]) ;
-    int i=s , j=e ;
-    while (i<PivotIndex && j>PivotIndex)  // move upto the Pivot , not the entire array
-    {
-        while (arr[i]<pivot)
-            i++ ;
-        while (arr[j]>pivot)
-            j-- ;
-        if (arr[i]>pivot && arr[j]<pivot)
+        if (arr[j] <= data)
         {
-            swap(arr[i],arr[j]) ;
             i++ ;
-            j-- ;
+            swap(arr[i],arr[j]) ;
         }
     }
-    return PivotIndex ;
+    swap(arr[i+1],arr[h]) ;
 
+    return i+1 ;
 }
 
-void quickSort(int *arr,int s, int e)
+void quicksort(int arr[], int l , int h)
 {
-    if (s>=e)
-        return ;
-    
-    // find the partition Index 
-    int PartIndex=partition(arr,s,e) ;
+    if (l<h)
+    {
+        int pos = partition(arr,l,h) ;
 
-    // sort left of partition Index
-    quickSort(arr,s,PartIndex-1) ;
-
-    // Sort Right of Partition Index
-    quickSort(arr,PartIndex+1,e) ;
+        quicksort(arr,l,pos-1) ;
+        quicksort(arr,pos+1,h) ;
+    }
 }
+
 int main(){
-    int arr[]={1,9,3,7,2,8} ;
-    int n =6 ;
+    int arr[] = {4,1,7,3,8,2,9,6} ;
+    int n = sizeof(arr)/sizeof(int) ;
 
-    quickSort(arr,0,n-1) ;
+    cout<<"Array before Sort : ";
+    for (int i=0; i<n; i++) cout<<arr[i]<<" " ;
+    cout<<"\n" ;
+    quicksort(arr,0,n-1) ;
 
-    for (int i=0; i<n ;i++) cout<<arr[i]<<" " ;
+    cout<<"Array after Sort : " ;
+    for (int i=0; i<n; i++) cout<<arr[i]<<" " ;
+    cout<<"\n";
 
     return 0 ;
 }
