@@ -1,7 +1,7 @@
 #include<list>
 #include<unordered_map>
 #include<queue>
-bool isCycle(unordered_map<int,list<int>> &adj,int src, unordered_map<int,bool> &visited)
+bool isCycle(unordered_map<int,list<int>> &adj,int src, unordered_map<int,bool> &visited)       //UDG
 {
     unordered_map<int,int> parent ;
     // new unvisited node

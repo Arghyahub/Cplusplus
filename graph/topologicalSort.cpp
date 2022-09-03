@@ -2,7 +2,7 @@
 #include<unordered_map>
 #include<stack>
 
-void dfs(unordered_map<int,list<int>> &adj ,vector<bool> &visited ,stack<int> &st , int val)
+void dfs(unordered_map<int,list<int>> &adj ,vector<bool> &visited ,stack<int> &st , int val)        //DAG
 {
     visited[val] = 1 ;
     

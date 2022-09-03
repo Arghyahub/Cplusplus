@@ -2,7 +2,7 @@
 #include<unordered_map>
 #include<queue>
 
-vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)  {
+vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)  {        //DAG
     
     unordered_map<int,list<int>> adj ;
     for (int i=0; i<e; i++)
