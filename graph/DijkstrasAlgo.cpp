@@ -2,7 +2,7 @@
 #include<set>
 #include<unordered_map>
 
-vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int source) {
+vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int source) {       // SHORTEST DISTANCE
     
     unordered_map<int, list< pair<int,int> > > adj;
     for (int i=0; i<edges; i++)
@@ -28,7 +28,7 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
         
         for (auto x : adj[top.second])
         {
-            if (top.first + x.second < dist[x.first] )
+            if (top.first + x.second < dist[x.first] )              // REMOVE THE PREVIOUSLY ENTERED DATA, NOW THAT IT IS PROVEN IT HAS MORE WEIGHT
             {
                 auto record = s.find({dist[x.first],x.first}) ;     
                 if ( record != s.end() )                            // IF DATA EXISITS THEN DELETE IT
@@ -39,6 +39,13 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
                 s.insert({dist[x.first] , x.first }) ;
             }
         }
+
+        /**
+         * @brief FOR EXAMPLE
+         * 0 -> (N2,D5) , (N3,D8)
+         * 2-> (n3,D2) -> NOW THAT 2-3 DIST IS SHORTER THAN 1-5 DIST
+         * REMOVE THE 1-5 RECORD FROM SET AND THEN UPDATE THE VALUE AND ENTER IT INTO THE SET 
+         */
     }
     return dist ;
 }
