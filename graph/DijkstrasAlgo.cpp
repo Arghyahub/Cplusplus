@@ -28,23 +28,25 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
         
         for (auto x : adj[top.second])
         {
-            if (top.first + x.second < dist[x.first] )              // REMOVE THE PREVIOUSLY ENTERED DATA, NOW THAT IT IS PROVEN IT HAS MORE WEIGHT
+            int distUptoP = top.first ;
+            int distPtoT = x.second ;
+            if (distUptoP + distPtoT < dist[x.first] /*curr dist*/ )    // REMOVE THE PREVIOUSLY ENTERED DATA, NOW THAT IT IS PROVEN IT HAS MORE WEIGHT
             {
-                auto record = s.find({dist[x.first],x.first}) ;     
+                auto record = s.find({dist[x.first],x.first}) ;    // find curr dist , current node 
                 if ( record != s.end() )                            // IF DATA EXISITS THEN DELETE IT
                 {
                     s.erase(record) ;
                 }
-                dist[x.first] = top.first + x.second ;              // UPDATE DISTANCE
-                s.insert({dist[x.first] , x.first }) ;
+                dist[x.first] = distUptoP + distPtoT ;              // UPDATE curr DISTANCE
+                s.insert({dist[x.first] , x.first }) ;  // new dist , node
             }
         }
 
         /**
          * @brief FOR EXAMPLE
          * 0 -> (N2,D5) , (N3,D8)
-         * 2-> (n3,D2) -> NOW THAT 2-3 DIST IS SHORTER THAN 1-5 DIST
-         * REMOVE THE 1-5 RECORD FROM SET AND THEN UPDATE THE VALUE AND ENTER IT INTO THE SET 
+         * 2-> (n3,D2) -> NOW THAT 2-3 DIST IS SHORTER THAN 0-3 DIST
+         * REMOVE THE 0-3 RECORD (IF EXISTS) FROM SET AND THEN UPDATE THE VALUE AND ENTER IT INTO THE SET 
          */
     }
     return dist ;
