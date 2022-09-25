@@ -14,16 +14,16 @@ void dfsGetBridge(int node, int parent, int &time, unordered_map<int, list<int>>
         if (nb == parent)
             continue;
 
-        if (!visited[nb])
+        if (!visited[nb])           // IF VISITED
         {
-            dfsGetBridge(nb, node, time, adj, disc, low, visited, ans);
-            low[node] = min(low[node], low[nb]);
+            dfsGetBridge(nb, node, time, adj, disc, low, visited, ans);         // CALL DFS
+            low[node] = min(low[node], low[nb]);      // WHILE RETURNING BACK IF, NBR NODE HAS LESSER LOW VALUE, UPDATE IT
 
-            if (low[nb] > disc[node])
+            if (low[nb] > disc[node])       //CONDITION FOR BRIDGE => IF LOW OF NBR SHOULD BE SMALLER THAN DISC OF NODE (MOSTLY DISC > LOW)
                 ans.push_back({node, nb});
         }
-        else
-            low[node] = min(low[node], disc[nb]);
+        else            // VISITED .:. IT IS CONNECTED TO AN ANCESTOR NODE (BACKEDGE)
+            low[node] = min(low[node], disc[nb]);   // GET MIN OF THE BACKEDGE/ANCESTOR NODE IN LOW[NODE] :: OTHER PATH EXISTS
     }
 }
 
