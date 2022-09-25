@@ -19,20 +19,20 @@ vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pa
     }
     
     vector<int> weight(n+1,INT_MAX) ; // weights
-    vector<bool> visited(n+1,false) ;
+    vector<bool> mst(n+1,false) ;
     vector<int> parent(n+1,-1) ;
     
     
     weight[1] = 0 ;
     parent[1] = -1 ;
     
-    for (int i=0; i<n; i++)        // RUNS N TIMES -> 1 bar mai ek nikle .:. n times chalao taki ek chiz 2 bar na chale
+    for (int i=0; i<n; i++)        // RUNS N TIMES -> 1 bar mai ek nikle .:. n times chalao taki ek chiz 2 bar na nikle
     {
         int mini = INT_MAX ;
         int u ;
         // find minimum value node
         for (int x=1; x<=n; x++){                           // EVERYTIME FETCH THE MINIMUM VALUE AND THEN PROCESS
-            if ( weight[x] < mini && visited[x]==false )
+            if ( weight[x] < mini && mst[x]==false )
             {
                 u=x ;
                 mini = weight[x] ;
@@ -40,12 +40,12 @@ vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pa
         }
         
         // mark min node as true ;
-        visited[u] = true ;
+        mst[u] = true ;
         
         for ( auto nb : adj[u] )
         {
             int v = nb.first , w =nb.second ;
-            if ( w < weight[v] && visited[v]==false ) // IF WE DON'T CHECK VISITED THEN IT WILL CREATE AN INFINITE LOOP IN UDG
+            if ( w < weight[v] && mst[v]==false ) // IF WE DON'T CHECK VISITED THEN IT WILL CREATE AN INFINITE LOOP IN UDG
             {
                 weight[v] = w ;
                 parent[v] = u ;
