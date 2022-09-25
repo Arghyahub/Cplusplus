@@ -1,66 +1,58 @@
-#include<unordered_map>
+#include <unordered_map>
 #include <list>
-void dfs(int node, int parent, vector<int> &discT, vector<int> &low, unordered_map< int, bool > &visited, vector<vector<int>> &result, unordered_map<int, list <int> > &adj, int &timer)
+#include <climits>
+
+void dfsGetBridge(int node, int parent, int &time, unordered_map<int, list<int>> &adj, vector<int> &disc,
+                  vector<int> &low, vector<bool> &visited, vector<vector<int>> &ans)
 {
-    visited[node] = true;
-    discT[node] = low[node] = timer++;
-    
-    for(auto neighbour : adj[node])
+    visited[node] = 1;
+    disc[node] = time;
+    low[node] = time++;
+
+    for (auto nb : adj[node])
     {
-        if(neighbour == parent)
-        {
+        if (nb == parent)
             continue;
-        }
-        if(!visited[neighbour])
+
+        if (!visited[nb])
         {
-            dfs(neighbour, node, discT, low, visited, result, adj, timer);
-            low[node] =min(low[node], low[neighbour]);
-            
-            if(low[neighbour] > discT[node])        // condition is true then node and nbr is form the edge (low should be lower)
-            {
-                vector<int> ans;
-                ans.push_back(node);
-                ans.push_back(neighbour);
-                result.push_back(ans);
-            }
+            dfsGetBridge(nb, node, time, adj, disc, low, visited, ans);
+            low[node] = min(low[node], low[nb]);
+
+            if (low[nb] > disc[node])
+                ans.push_back({node, nb});
         }
         else
-        {
-            low[node] = min(low[node], discT[neighbour]);       // IF VISITED THEN TAKE MINIMUM TIMESS
-        }
+            low[node] = min(low[node], disc[nb]);
     }
-    
 }
-vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e) {
-    unordered_map<int, list <int> > adj;
-    for(int i = 0; i<edges.size(); i++)
-        {
-          int u = edges[i][0];
-          int v = edges[i][1];
 
-          adj[u].push_back(v);
-          adj[v].push_back(u);
-        }
-    int timer = 0;
-    vector<int> discT(v);
-    vector<int> low(v);        // IS THE LOWEST TIME OF INSERTITION AMONG ITS ADJACENT NODES
-    int parent = -1;
-    unordered_map< int, bool > visited;
- 
-    //Initialize
-    for(int i = 0; i<v; i++)
-        {
-          discT[i] = -1;
-          low[i] = -1;
-        }
-    vector<vector<int>> result;
-      //Call DFS
-    for(int i = 0; i < v; i++)
-        {
-          if(!visited[i])
-          {
-            dfs(i, parent, discT, low, visited, result, adj, timer);
-          }
-        }
-    return result;
+void setadj(unordered_map<int, list<int>> &adj, vector<vector<int>> &edges)
+{
+    for (int i = 0; i < edges.size(); i++)
+    {
+        int u = edges[i][0];
+        int v = edges[i][1];
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+}
+vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e)
+{
+    // Write your code here
+    unordered_map<int, list<int>> adj;
+    setadj(adj, edges);
+
+    vector<int> disc(v, INT_MAX);
+    vector<int> low(v, INT_MAX);
+    vector<bool> visited(v, 0);
+
+    vector<vector<int>> ans;
+    int time = 0;
+
+    for (int i = 0; i < v; i++)
+        if (!visited[i])
+            dfsGetBridge(i, -1, time, adj, disc, low, visited, ans);
+
+    return ans;
 }
