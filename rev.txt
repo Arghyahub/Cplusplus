@@ -1,5 +1,5 @@
-array            [] [] [] [] []
-2DArray          [] [] [] [] []
+array            [X] [] [] [] []
+2DArray          [X] [] [] [] []
 OOP              [] [] [] [] []
 binsearch        [] [] [] [] []
 bitManipulation  [] [] [] [] []
