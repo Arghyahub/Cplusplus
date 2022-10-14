@@ -4,7 +4,8 @@ public:
         nums1.insert(nums1.begin(),-1) ;
         nums2.insert(nums2.begin(),-1) ;
         int N = nums1.size() ;
-        vector<vector<int>> dp(N+1,vector<int>(2,0)) ;
+        vector<int> next(2,0) ;
+        vector<int> curr(2,0) ;
         
         for (int i=N-1; i>=1; i--){
             for (int s=1; s>=0; s--){
@@ -17,13 +18,14 @@ public:
 
                 int ans = INT_MAX ;
                 if (nums1[i]>prev1 && nums2[i]>prev2)
-                    ans = dp[i+1][0] ;
+                    ans = next[0] ;
                 if (nums1[i]>prev2 && nums2[i]>prev1)
-                    ans = min(ans , 1 + dp[i+1][1] ) ;
+                    ans = min(ans , 1 + next[1] ) ;
 
-                dp[i][s] = ans ;
+                curr[s] = ans ;
             }
+            next=curr ;
         }
-        return dp[1][0] ;
+        return curr[0] ;
     }
 };
