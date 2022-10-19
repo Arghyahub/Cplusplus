@@ -10,13 +10,13 @@ int main()
     {10, 13, 14, 17, 24},
     {18, 21, 23, 26, 30}
     };
-    int target = 13 ;
+    int target = 16 ;
 
     int rowsize = matrix.size(), colsize = matrix[0].size() ;
     /* Now we have two pointer one to move in row and the other in column to search the entire array
     take an element say  -> 16
-    1<increase> if we go down the row the element>16 and if we go bigger column element>16
-    2<decrease> now if we go to lower rows element decreases element<16 same for lower colums
+    1<increase> if we go down the row the element>16 and if we go forward in column element>16
+    2<decrease> now if we go to up the rows element decreases element<16 same for backward colums
 
     Now choose a task for row and a task for column
     say for increase I'm choosing row : to go to a bigger number row++
