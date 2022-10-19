@@ -1,7 +1,7 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-void forwardIndex(vector<int> hist , vector<int> &forw , int n)
+void forwardIndex(vector<int> &hist , vector<int> &forw , int n)
 {
     for (int i=0; i<n; i++)
         for (int j=i+1; j<n+1 ; j++)
@@ -11,7 +11,7 @@ void forwardIndex(vector<int> hist , vector<int> &forw , int n)
                 break ;
             }
 }
-void backwardIndex(vector<int> hist , vector<int> &backw, int n)
+void backwardIndex(vector<int> &hist , vector<int> &backw, int n)
 {
     for (int i=0; i<n; i++)
     {
