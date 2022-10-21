@@ -11,3 +11,4 @@
 * [Search in 2d Array](https://leetcode.com/problems/search-a-2d-matrix/ "Leetcode")
 * [Search in 2d Array II](https://leetcode.com/problems/search-a-2d-matrix-ii/ "Leetcode")
 * [Print in Spiral Matrix](https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/ "GFG")
+* [Number of Distinct Island](https://www.geeksforgeeks.org/find-the-number-of-distinct-islands-in-a-2d-matrix/ "GFG")

@@ -38,7 +38,7 @@ int getMaxPair(int mat[N][N])
     return ans;
 }
 
-int main(){
+int main(){     // find number n(a,b) , m(c,d) such that n-m is maximum; and c<a & d<b
     int mat[N][N] = {
         {  1,  2, -1, -4, -20},
         { -8, -3,  4,  2,  1 },
