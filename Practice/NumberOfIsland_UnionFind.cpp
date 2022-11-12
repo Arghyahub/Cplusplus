@@ -34,7 +34,7 @@ class unionFind
         int row = arr.size() , col = arr[0].size() , count=0;
         for (int i=0; i<row; i++){
             for (int j=0; j<col; j++){
-                if (arr[i][j] && (parent[i*col+j]==i*col+j) )
+                if (arr[i][j] && (parent[i*col+j]==i*col+j) )       // AN ENTIRE ISLAND WILL HAVE ONLY 1 PARENT, THEREFORE WE CAN CONFIRM NUM OF ISLANDS
                     count++;
             }
         }
@@ -47,6 +47,7 @@ class unionFind
 class Solution {
   public:
     vector<int> numOfIslands(int n, int m, vector<vector<int>> &op) {
+        //  Q. At each iteration a index(i,j) will be marked True, you have to find the number of unique island at that point of time
         vector<vector<bool>> arr(n,vector<bool>(m,false));
         vector<int> ans(op.size()) ;
         int col = m ;

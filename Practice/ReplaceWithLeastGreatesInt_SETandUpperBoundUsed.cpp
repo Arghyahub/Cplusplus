@@ -10,6 +10,7 @@ using namespace std;
 class Solution{
     public:
     vector<int> findLeastGreater(vector<int>& arr, int n) {
+		// 	Q. Replace every element with the least greater element on its right
         set<int> s;
         for (int i=n-1; i>=0; i--){
             auto it = s.upper_bound(arr[i]) ;

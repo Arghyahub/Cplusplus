@@ -17,6 +17,12 @@ class Solution{
         return m ;
     }
 public:
+    /**
+     *  Q. Find substring with maximum sum of ASCII code
+     *      ASCII value of sum characters(array x[]) are changed(array b[])
+     *      like x[]={'c'} , b[] = {-100} 
+     *      ans return the substring
+     */
     string maxSum(string w,char x[], int b[],int n){ // Use two variable one to keep the track of current sumtillEnd and other for maximum
         int maxi=INT_MIN, maxToEnd = 0, start=0, end=0 , s=0 ;
         for (int i=0; i<w.size(); i++){
