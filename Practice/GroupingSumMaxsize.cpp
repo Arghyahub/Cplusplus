@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
   public:
     int maxGroupSize(int arr[], int N, int K) {     // RETURN THE MAXM SIZE OF GROUP WHERE SUM OF ANY TWO NUMBERS IS NOT DIVISIBLE BY K

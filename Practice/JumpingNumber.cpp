@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+using namespace std;
 // } Driver Code Ends
 class Solution {    // FIND ALL MAXM NUM <=K WHO'S ADJACENT DIGITS HAVE A DIFFERENCE OF 1
     
