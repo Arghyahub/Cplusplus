@@ -1,6 +1,6 @@
-
+#include<bits/stdc++.h>
 // } Driver Code Ends
-class Solution {
+class Solution {    // FIND ALL MAXM NUM <=K WHO'S ADJACENT DIGITS HAVE A DIFFERENCE OF 1
     
     void bfs(long long X, int num,long long &ans)
     {
