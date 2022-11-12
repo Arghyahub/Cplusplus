@@ -1,6 +1,7 @@
 class Solution {
 public:
-    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {     // MERGE OVERLAPPING INTERVALS IN ARRAY
+        // AND GIVE THE RETURN VECTOR OF HIGHEST DISCONTINUOUS RANGES
         int n = intervals.size() ;
         sort(intervals.begin(),intervals.end()) ;
         vector<vector<int>> ans;
