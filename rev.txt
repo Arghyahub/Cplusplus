@@ -1,7 +1,7 @@
 array            [X] [] [] [] []
 2DArray          [X] [] [] [] []
 Practise         [X] [] [] [] []
-OOP              [] [] [] [] []
+OOP              [X] [] [] [] []
 binsearch        [] [] [] [] []
 bitManipulation  [] [] [] [] []
 sort             [] [] [] [] []
