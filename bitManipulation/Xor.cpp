@@ -38,8 +38,9 @@ int main(){
      *  ==> O(n) solution
      */
     // FOR MULTIPLE OF 4 WE ARE GETTING N AS OUTPUT : 1^2^3^...^(4n) = 4n
+    // a=4n
     // FOR N%4==1 : 1
-    // FOR N%4==2 : n+1
+    // FOR N%4==2 : a+1
     // FOR N%4==3 : 0
     cout<<"Enter number to get XOR of all natural numbers upto : ";
     cin>>a ;
