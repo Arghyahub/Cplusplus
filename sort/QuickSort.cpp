@@ -24,9 +24,9 @@ void quicksort(int arr[], int l , int h)
     if (l<h)
     {
         int pos = partition(arr,l,h) ;
-
-        quicksort(arr,l,pos-1) ;
-        quicksort(arr,pos+1,h) ;
+                                        // ELEMENT AT POS IS ALREADY IN THE CORRECT POSITION
+        quicksort(arr,l,pos-1) ;    // SKIP
+        quicksort(arr,pos+1,h) ;    // IT
     }
 }
 
