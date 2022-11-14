@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 bool isPossible(int row, int col, vector<vector<int>>& sudoku, int val )
 {
     for (int i=0; i<9; i++)
@@ -33,12 +35,15 @@ bool solve(vector<vector<int>>& sudoku)
                             sudoku[row][col] = 0 ;
                     }
                 }
-                return false ;  // IF AFTER INSERTING A NUMBER , NO OTHER NUMBER CAN BE FOUND FOR THE OTHER NUMBER
+                // IF IT HAS NOT RETURNED TRUE AND CAME OUT THEN
+
+                return false ;  // IF AFTER INSERTING A NUMBER , NO OTHER NUMBER CAN BE FOUND FOR REMAINING PLACE
                 // THEN THE WHOLE SET OF NUMBERS ARE WRONGLY PLACED, SO RETURN FALSE
             }
+            // IT MEANS NO PLACE IS LEFT WITH 0
         }
     }
-    return true ; // IF WE HAVE INSETED RIGHT NUMBERS IN RIGHT POSITION THEN THERE WILL BE NO POSITION LEFT
+    return true ; // IF WE HAVE INSERTED RIGHT NUMBERS IN RIGHT POSITION THEN THERE WILL BE NO POSITION LEFT
     // WITH ARR[I][J]==0 THUS BEING SOLVED THEREFORE RETURN TRUE
 }
 
