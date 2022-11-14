@@ -1,6 +1,8 @@
+#include<bits/stdc++.h>
+using namespace std;
 bool isSafe(int row, int col, vector<vector<bool>> &queen , int n )
 {
-    // check right ;
+    // check left ;
     int x = row, y = col ;
     while(y>=0)
     {
@@ -9,7 +11,7 @@ bool isSafe(int row, int col, vector<vector<bool>> &queen , int n )
         y-- ;
     }
     
-    // check diagonal up right
+    // check diagonal up left
     x = row, y = col ;
     
     while(x>=0 && y>=0)
