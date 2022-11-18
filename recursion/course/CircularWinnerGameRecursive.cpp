@@ -1,3 +1,5 @@
+// https://leetcode.com/problems/find-the-winner-of-the-circular-game/description/
+
 class Solution {
     
     int solve(int n, int k)
@@ -5,7 +7,7 @@ class Solution {
         if (n==1)
             return 0 ;
         
-        return (solve(n-1,k)+k)%n ;
+        return (solve(n-1,k)+k)%n ;     // Add k , number of times it took you to reach single element
     }
     
 public:
