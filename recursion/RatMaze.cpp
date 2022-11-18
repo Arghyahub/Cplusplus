@@ -79,11 +79,8 @@ int main()
     if (m[0][0]==0) // if the first block is 0 then the mouse cannot move, game ends
         return 0 ;
         // return ans ;
-    vector<vector<bool>> visited(n,vector<bool>(n)) ;  // Define a visited array so that, when ever you visit a block turn it to 1
+    vector<vector<bool>> visited(n,vector<bool>(n,0)) ;  // Define a visited array so that, when ever you visit a block turn it to 1
     string store="" ;
-    for (int i=0; i<n; i++)
-        for (int j=0; j<n; j++)
-            visited[i][j]=0 ;
     
     solve(m,n,visited,store,ans,0,0) ;
     
