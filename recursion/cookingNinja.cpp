@@ -1,48 +1,38 @@
-#include<iostream>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
-void cooktime(vector<int> rank,int s, int e, int n,int &ans)
+void cooktime(int s, int e, vector<int> &rank, int maxDish, int &ans)
 {
     if (s>e)
-        return  ;
-    int mid = s+(e-s)/2 , mul=1, dish=0;
-    for (int i : rank)
-    {
-        while (i*mul<=mid)
-        {
-            dish++ ;
-            mul++ ;
+        return ;
+    
+    int mid = s+(e-s)/2 ;
+
+    int dish=0;
+    for (int r : rank){
+        int mul=1,time=0 ;
+
+        while (time + r*mul <= mid ){
+            time+=r*mul ;
+            mul++;
+            dish++;
         }
     }
-    if (dish==n)
-    {
-        ans=mid ;
-        return cooktime(rank,s,mid -1,n,ans) ;
+    
+    if (dish>=maxDish){
+        ans=mid;
+        cooktime(s,mid-1,rank,maxDish,ans) ;
     }
-    else if (dish<n)
-        return cooktime(rank,mid+1,e,n,ans) ;
     else
-        return cooktime(rank,s,mid-1,n,ans) ;
-
+        cooktime(mid+1,e,rank,maxDish,ans) ;
 }
 int main(){
-    vector<int> rank;
-    int n, numDishes , small=999 , ans=-1;
-    cin>>n>>numDishes ;
+    vector<int> rank = {1,2,3,4} ;
+    int numDishes = 11;
+    int ans=-1;
+    int maxTime = 1*(11*(11+1)/2) ;
+    cooktime(0,maxTime,rank,numDishes,ans) ;
 
-    for (int i=0; i<n; i++)
-    {
-        int x;
-        cin>>x ;
-        small=min(small,x) ;
-        rank.push_back(x) ;
-    }
-    // r*1 + r*2+r*3+r*4+....r*numDishes = r(1+2+3+4+..+numDishesh) = r* (numDishes*(numDishes+1))/2
-    int maxtime= small*(numDishes*(numDishes+1))/2 , mintime=0;
-
-    cooktime(rank,mintime,maxtime,numDishes, ans) ;
-
-    cout<<endl<<ans<<endl ;
+    cout<<ans<<endl;
 
     return 0 ;
 }
