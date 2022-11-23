@@ -1,3 +1,5 @@
+/*  Q1. YOU CAN CHOOSE NUMBER FROM EITHER FIRST OR LAST, TELL IF YOU CAN GET THE MAXIMUM SUM.
+*/
 class Solution {
     int solve(vector<int>& nums, int s, int e)
     {
