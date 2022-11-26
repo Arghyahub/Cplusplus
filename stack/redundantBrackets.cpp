@@ -1,4 +1,8 @@
 #include<stack>
+// Input: str = “((a+b))”
+// Output: YES
+// Input: str = “(a+b)”
+// Output: NO
 bool findRedundantBrackets(string &s)
 {
     // Write your code here.
