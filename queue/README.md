@@ -12,3 +12,4 @@
 
 * [Circular Tour](https://www.geeksforgeeks.org/find-a-tour-that-visits-all-stations/ "GFG")
 
+* [First Non repeating character in stream](https://practice.geeksforgeeks.org/problems/first-non-repeating-character-in-a-stream1216/1 "GFG")
