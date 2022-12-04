@@ -49,5 +49,5 @@
 * [Rat Maze](https://practice.geeksforgeeks.org/problems/rat-in-a-maze-problem/1# "GFG")
 
 
-
+* [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/ "Leetcode")
 
