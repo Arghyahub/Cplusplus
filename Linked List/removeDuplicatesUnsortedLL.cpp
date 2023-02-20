@@ -2,10 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node {
+struct Node
+{
   int data;
   struct Node *next;
-  Node(int x) {
+  Node(int x)
+  {
     data = x;
     next = NULL;
   }
@@ -13,16 +15,15 @@ struct Node {
 
 void print(Node *root)
 {
-Node *temp = root;
-while(temp!=NULL)
-{
-cout<<temp->data<<" ";
-temp=temp->next;
-}
+  Node *temp = root;
+  while (temp != NULL)
+  {
+    cout << temp->data << " ";
+    temp = temp->next;
+  }
 }
 
-
- // } Driver Code Ends
+// } Driver Code Ends
 /*
 The structure of linked list is the following
 
@@ -36,65 +37,64 @@ struct Node {
 };
 */
 
-
 class Solution
 {
-    public:
-    //Function to remove duplicates from unsorted linked list.
-    Node * removeDuplicates( Node *head) 
+public:
+  // Function to remove duplicates from unsorted linked list.
+  Node *removeDuplicates(Node *head)
+  {
+    unordered_map<int, bool> mpp;
+    Node *temp = head;
+    Node *prev = temp;
+    while (temp != NULL)
     {
-        unordered_map<int,bool> mpp;
-        Node* temp = head ;
-        Node* prev =temp ;
-        while(temp!=NULL)
-        {
-            if (mpp[temp->data]!=1)
-                mpp[temp->data]=1 ;
-            else
-            {
-                prev->next = temp->next ;
-                temp=prev ;
-            }
-            
-            prev = temp ;
-            temp=temp->next ;
-        }
-        return head;
-    }
-};
+      if (mpp[temp->data] != 1)
+        mpp[temp->data] = 1;
+      else
+      {
+        prev->next = temp->next;
+        temp = prev;
+      }
 
+      prev = temp;
+      temp = temp->next;
+    }
+    return head;
+  }
+};
 
 // { Driver Code Starts.
 
-int main() {
-	// your code goes here
-	int T;
-	cin>>T;
-	
-	while(T--)
-	{
-		int K;
-		cin>>K;
-		struct Node *head = NULL;
-        struct Node *temp = head;
- 
-		for(int i=0;i<K;i++){
-		int data;
-		cin>>data;
-			if(head==NULL)
-			head=temp=new Node(data);
-			else
-			{
-				temp->next = new Node(data);
-				temp=temp->next;
-			}
-		}
-		
-	    Solution ob;
-		Node *result  = ob.removeDuplicates(head);
-		print(result);
-		cout<<endl;
-		
-	}
-	return 0;
-}  // } Driver Code Ends
+int main()
+{
+  // your code goes here
+  int T;
+  cin >> T;
+
+  while (T--)
+  {
+    int K;
+    cin >> K;
+    struct Node *head = NULL;
+    struct Node *temp = head;
+
+    for (int i = 0; i < K; i++)
+    {
+      int data;
+      cin >> data;
+      if (head == NULL)
+        head = temp = new Node(data);
+      else
+      {
+        temp->next = new Node(data);
+        temp = temp->next;
+      }
+    }
+
+    Solution ob;
+    Node *result = ob.removeDuplicates(head);
+    print(result);
+    cout << endl;
+  }
+  return 0;
+} // } Driver Code Ends
