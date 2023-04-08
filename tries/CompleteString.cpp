@@ -1,3 +1,7 @@
+/**
+ * Q. A string is called a complete string if all its prefixes exist in the array
+ */
+
 // If prefix doesn't exist then stop the loop
 #include <bits/stdc++.h> 
 using namespace std;
