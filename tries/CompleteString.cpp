@@ -61,12 +61,13 @@ class Trie{
     string longest="";
     void strUtil(string &ans, Node* node){
         for (char ch='a'; ch<='z'; ch++){
-            if (node->get(ch)!=NULL && (node->get(ch))->noEnds()!=0 ){
-                ans.push_back(ch) ;
+            // Move only in paths where a string ends
+            if (node->get(ch)!=NULL && (node->get(ch))->noEnds()!=0 ){ 
+                ans.push_back(ch) ;     // push current char
                 if (ans.size()>longest.size())
                     longest=ans;
-                strUtil(ans,node->get(ch)) ;
-                ans.pop_back() ;
+                strUtil(ans,node->get(ch)) ;    // dfs in this path
+                ans.pop_back() ;        // remove to move in different char path
             }
         }
     }
