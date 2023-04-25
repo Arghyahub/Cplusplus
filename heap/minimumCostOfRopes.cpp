@@ -22,7 +22,7 @@ class Solution
         {
             long long first = pq.top() ; pq.pop() ;
             long long second = 0 ;
-            if (!pq.empty()) second = pq.top() ; pq.pop() ;
+            if (!pq.empty()) second = pq.top() , pq.pop() ;
             
             pq.push(first+second) ;
             
