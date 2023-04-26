@@ -14,13 +14,13 @@ void getMedian(int element, int &median, priority_queue<int> &maxi,
         case 0 : // maxheap.size == minheap.size
             if (element > median)
             {
-                // IT WILL GO TO min HEAP(left) .:. BOTH HEAPS HAVE SAME SIZE
+                // IT WILL GO TO min HEAP(Right) .:. BOTH HEAPS HAVE SAME SIZE
                 mini.push(element) ;
                 median = mini.top() ;
             }
             else
             {
-                // IT WILL GO TO maxHeap(right)
+                // IT WILL GO TO maxHeap(Left)
                 maxi.push(element) ;
                 median = maxi.top() ;
             }
