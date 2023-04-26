@@ -1,6 +1,6 @@
 #include<map>
 #include<queue>
-
+// https://leetcode.com/problems/reorganize-string/
 // THE MAIN ALGORITHM IS TO DISTRIBUTE THE CHARACTER HAVING MAXM OCCURRENCE
 // AND THEN PLACE THE OTHER CHARACTERS
 // EG: a=3 , b=2
