@@ -1,4 +1,4 @@
-array            [X] [] [] [] []
+array            [*] [] [] [] []
 2DArray          [X] [] [] [] []
 Practise         [X] [] [] [] []
 OOP              [X] [] [] [] []

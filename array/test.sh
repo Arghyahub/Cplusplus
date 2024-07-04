@@ -15,4 +15,4 @@ echo "First Line: $first_line"
 # Delete the first line and save the changes
 sed -i '1d' "$filename"
 
-echo "First line deleted from '$filename'."
+code $first_line 
